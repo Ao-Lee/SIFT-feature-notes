@@ -8,7 +8,7 @@ major stages: Scale-space extrema detection, Key point localization, Orientation
 
 * apply Gaussian kernel with different sigma to original image and resized version of original image (different resized version of the original image is called different octive), the output are blurring with different sigma 
 * compute difference of Gaussian(DoG) by subtracting nearby blurred images. DOG is an approximation of Laplacian of Gaussian (LoG). LoG acts as a blob detector which detects blobs in various sizes due to change in sigma. 
-* ![DoG]((https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/DoG.png?raw=true))
+* ![DoG](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/DoG.png?raw=true)
 
 * Once this DoG are found, images are searched for local extrema over scale and space. For eg, one pixel in an image is compared with its 8 neighbours as well as 9 pixels in next scale and 9 pixels in previous scales. If it is a local extrema, it is a potential keypoint.
 * ![local_extrema](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/local_extrema.png?raw=true)

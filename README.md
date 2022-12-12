@@ -8,10 +8,10 @@ major stages: Scale-space extrema detection, Key point localization, Orientation
 
 * apply Gaussian kernel with different sigma to original image and resized version of original image (different resized version of the original image is called different octive), the output are blurring with different sigma 
 * compute difference of Gaussian(DoG) by subtracting nearby blurred images. DOG is an approximation of Laplacian of Gaussian (LoG). LoG acts as a blob detector which detects blobs in various sizes due to change in sigma. 
-* ![DoG](传统视觉/DoG.png)
+* ![DoG]((https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/DoG.png?raw=true))
 
 * Once this DoG are found, images are searched for local extrema over scale and space. For eg, one pixel in an image is compared with its 8 neighbours as well as 9 pixels in next scale and 9 pixels in previous scales. If it is a local extrema, it is a potential keypoint.
-* ![local_extrema](传统视觉/local_extrema.png)
+* ![local_extrema](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/local_extrema.png?raw=true)
 
 
 
@@ -31,11 +31,12 @@ Orientation assignment is used to achieve rotation invariance
 
 The scale of the key point is used to select the Gaussian smoothed image, L. For each image sample, L(x, y), at this scale, the gradient magnitude, m(x, y), and orientation, theta(x, y), is precomputed using pixel differences
 
-![gradient_magnitude_and_orientation](传统视觉/gradient_magnitude_and_orientation.png)
+![gradient_magnitude_and_orientation](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/gradient_magnitude_and_orientation.png?raw=true)
 
 Create a weighted direction histogram in a neighborhood of the key point (36 bins). It is weighted by gradient magnitude and Gaussian-weighted circular window.
 
-![direction_histogram](传统视觉/direction_histogram.png)
+![direction_histogram](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/direction_histogram.png?raw=true)
+
 
 
 
@@ -45,4 +46,5 @@ The highest peak in the histogram is taken and any peak above 80% of it is also 
 
 A 16x16 neighborhood around the key point is taken. It is divided into 16 sub-blocks of 4x4 size. For each sub-block, 8 bin orientation histogram is created. Concatenate 16 histograms in one long vector of 128 dims.
 
-![descriptor](传统视觉/descriptor.png)
+![descriptor](https://github.com/Ao-Lee/SIFT-feature-notes/blob/main/imgs/descriptor.png?raw=true)
+
